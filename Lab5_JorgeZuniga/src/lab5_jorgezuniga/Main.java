@@ -62,6 +62,8 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PopupMenu_Modificar = new javax.swing.JPopupMenu();
+        PopupMenu_Eliminar = new javax.swing.JPopupMenu();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -111,14 +113,12 @@ public class Main extends javax.swing.JFrame {
         JefeCarrera = new javax.swing.JTextField();
         GuardarCarrera = new javax.swing.JButton();
         jTabbedPane3 = new javax.swing.JTabbedPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ListaAlumnos = new javax.swing.JList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListaMaestros = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         ListaCarreras = new javax.swing.JList<>();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        ListaClases = new javax.swing.JList<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -485,13 +485,12 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Agregar", jTabbedPane2);
 
-        ListaAlumnos.setModel(new DefaultListModel()
-        );
-        jScrollPane1.setViewportView(ListaAlumnos);
-
-        jTabbedPane3.addTab("Alumnos", jScrollPane1);
-
         ListaMaestros.setModel(new DefaultListModel());
+        ListaMaestros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaMaestrosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(ListaMaestros);
 
         jTabbedPane3.addTab("Maestros", jScrollPane2);
@@ -501,10 +500,9 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Carreras", jScrollPane3);
 
-        ListaClases.setModel(new DefaultListModel());
-        jScrollPane5.setViewportView(ListaClases);
+        jScrollPane4.setViewportView(jTree1);
 
-        jTabbedPane3.addTab("Clases", jScrollPane5);
+        jTabbedPane3.addTab("Arbol", jScrollPane4);
 
         jTabbedPane1.addTab("Modificar y Eliminar", jTabbedPane3);
 
@@ -577,13 +575,13 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             if (ClasesMaestro.getSelectedIndex() >= 0) {
-                String nombre, apellido, clase,genero="";
+                String nombre, apellido, clase, genero = "";
                 int salario, edad;
                 nombre = NombreMaestro.getText();
                 apellido = ApellidoMaestro.getText();
                 salario = Integer.parseInt(SalarioMaestro.getText());
                 edad = Integer.parseInt(EdadMestro.getText());
-                DefaultListModel modelo = (DefaultListModel) ListaCarreras.getModel();
+                
                 if (GeneroMaestro.getSelectedItem() == "Masculino") {
                     genero = "Masculino";
                 }
@@ -591,15 +589,16 @@ public class Main extends javax.swing.JFrame {
                     genero = "Femenino";
                 }
                 clase = ClasesMaestro.getSelectedItem().toString();
+                DefaultListModel modelo = (DefaultListModel) ListaMaestros.getModel();
                 modelo.addElement(new Maestro(salario, nombre, apellido, edad, genero, clase));
-                ListaCarreras.setModel(modelo);
+                ListaMaestros.setModel(modelo);
                 ClasesMaestro.setSelectedIndex(0);
                 GeneroMaestro.setSelectedItem(0);
                 NombreMaestro.setText("");
                 ApellidoMaestro.setText("");
                 EdadMestro.setText("");
                 SalarioMaestro.setText("");
-
+                JOptionPane.showMessageDialog(this, "Guardado exitosamente!!");
             } else {
                 JOptionPane.showMessageDialog(this, "Mientras no hayan clases no puede haber maestros!!");
             }
@@ -612,6 +611,10 @@ public class Main extends javax.swing.JFrame {
     private void GuardarCarreraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarCarreraMouseClicked
         // TODO add your handling code here:
         try {
+            if (NombresCarreras.getSelectedIndex() < 0) {
+                JOptionPane.showMessageDialog(this, "No hay mas carreras que se puedan anadir!!\n"
+                        + "Buen dia :)");
+            }else{
             String nombre = "", facultad = "", jefeCarrera;
             int Costo;
             Costo = Integer.parseInt(CostoMensualCarrera.getText());
@@ -631,20 +634,20 @@ public class Main extends javax.swing.JFrame {
                 nombre = NombresCarreras.getSelectedItem().toString();
                 facultad = "Ciencias de la Salud:";
             }
-
+            
             DefaultListModel modelo = (DefaultListModel) ListaCarreras.getModel();
-
             modelo.addElement(new Carrera(nombre, facultad, Costo, jefeCarrera));
             ListaCarreras.setModel(modelo);
-
+            
             DefaultComboBoxModel modeloCarreras = (DefaultComboBoxModel) CarreraAlumno.getModel();
-
             modeloCarreras.addElement(new Carrera(nombre, facultad, Costo, jefeCarrera));
             CarreraAlumno.setModel(modeloCarreras);
+            NombresCarreras.removeItemAt(NombresCarreras.getSelectedIndex());
             NombresCarreras.setSelectedIndex(0);
             CostoMensualCarrera.setText("");
             JefeCarrera.setText("");
             JOptionPane.showMessageDialog(this, "Se guardo con exito!!");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error!!");
         }
@@ -667,9 +670,9 @@ public class Main extends javax.swing.JFrame {
                 AireAC = "No";
             }
 
-            DefaultListModel modelo = (DefaultListModel) ListaCarreras.getModel();
+            DefaultListModel modelo = (DefaultListModel) ListaClases.getModel();
             modelo.addElement(new Clases(nombre, seccion, edificio, salon, AireAC));
-            ListaCarreras.setModel(modelo);
+            ListaClases.setModel(modelo);
 
             DefaultComboBoxModel modelo0 = (DefaultComboBoxModel) ClasesMaestro.getModel();
             modelo0.addElement(new Clases(nombre, seccion, edificio, salon, AireAC));
@@ -689,6 +692,17 @@ public class Main extends javax.swing.JFrame {
     private void ApellidoMaestroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoMaestroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ApellidoMaestroActionPerformed
+
+    private void ListaMaestrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaMaestrosMouseClicked
+        // TODO add your handling code here:
+        if (ListaCarreras.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                PopupMenu_Modificar.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+
+            }
+        }
+    }//GEN-LAST:event_ListaMaestrosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -742,14 +756,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton GuardarClase;
     private javax.swing.JButton GuardarMaestro;
     private javax.swing.JTextField JefeCarrera;
-    private javax.swing.JList<String> ListaAlumnos;
     private javax.swing.JList<String> ListaCarreras;
-    private javax.swing.JList<String> ListaClases;
     private javax.swing.JList<String> ListaMaestros;
     private javax.swing.JTextField NombreAlumno;
     private javax.swing.JTextField NombreClase;
     private javax.swing.JTextField NombreMaestro;
     private javax.swing.JComboBox<String> NombresCarreras;
+    private javax.swing.JPopupMenu PopupMenu_Eliminar;
+    private javax.swing.JPopupMenu PopupMenu_Modificar;
     private javax.swing.JFormattedTextField SalarioMaestro;
     private javax.swing.JFormattedTextField SalonClase;
     private javax.swing.JTextField SeccionClase;
@@ -777,13 +791,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
     ArrayList alumnos = new ArrayList();
     ArrayList carreras = new ArrayList();
