@@ -59,7 +59,7 @@ public class Carrera {
 
     @Override
     public String toString() {
-        return "Nombre=" + nombre + ", Facultad=" + facultad + ", Jefe de Carrera=" + JefeDeCarrera;
+        return "Nombre=" + nombre;
     }
     
     

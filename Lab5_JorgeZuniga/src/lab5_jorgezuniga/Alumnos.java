@@ -12,7 +12,7 @@ package lab5_jorgezuniga;
 public class Alumnos extends Personas{
     private double NumeroCuenta;
     private String Carrera;
-
+    
     public Alumnos() {
         super();
     }
@@ -26,7 +26,7 @@ public class Alumnos extends Personas{
     public double getNumeroCuenta() {
         return NumeroCuenta;
     }
-
+    
     public void setNumeroCuenta(double NumeroCuenta) {
         this.NumeroCuenta = NumeroCuenta;
     }
@@ -41,8 +41,10 @@ public class Alumnos extends Personas{
 
     @Override
     public String toString() {
-        return "Nombre="+super.getNombre()+" Apellido=" + super.getApellido() + "  Edad="+super.getEdad()+"  Genero="+super.getGenero() + NumeroCuenta + ", Carrera=" + Carrera;
+        return "NumeroCuenta=" + NumeroCuenta + ", Carrera=" + Carrera + " Nombre="+super.getNombre() + " Apellido="+super.getApellido()+" Genero="+super.getGenero() + " Edad="+super.getEdad();
     }
+
+
     
     
     

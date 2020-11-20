@@ -13,15 +13,24 @@ import java.util.ArrayList;
  */
 public class Maestro extends Personas{
     private int salario;
-    private ArrayList clases = new ArrayList();
+    private String clase;
 
     public Maestro() {
         super();
     }
 
-    public Maestro(int salario, String nombre, String Apellido, int edad , String Genero) {
+    public Maestro(int salario, String nombre, String Apellido, int edad , String Genero,String clase) {
         super(nombre, Apellido, edad , Genero);
         this.salario = salario;
+        this.clase = clase;
+    }
+
+    public String getClase() {
+        return clase;
+    }
+
+    public void setClase(String clase) {
+        this.clase = clase;
     }
 
     public int getSalario() {
@@ -32,17 +41,9 @@ public class Maestro extends Personas{
         this.salario = salario;
     }
 
-    public ArrayList getClases() {
-        return clases;
-    }
-
-    public void setClases(ArrayList clases) {
-        this.clases = clases;
-    }
-
     @Override
     public String toString() {
-        return "Nombre="+super.getNombre() + " Apellido=" + super.getApellido() + " Edad="+super.getEdad()+" Genero="+super.getGenero()+" Salario=" + salario + ", Clases=" + clases + '}';
+        return "Nombre="+super.getNombre() + " Apellido=" + super.getApellido() + " Edad="+super.getEdad()+" Genero="+super.getGenero()+" Salario=" + salario + ", Clases=" + clase;
     }
     
     

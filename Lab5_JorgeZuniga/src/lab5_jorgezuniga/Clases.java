@@ -11,7 +11,7 @@ package lab5_jorgezuniga;
  */
 public class Clases {
     private String nombre;
-    private int seccion;
+    private String seccion;
     private int edificio;
     private int salon;
     private String Aire;
@@ -20,7 +20,7 @@ public class Clases {
     }
 
     
-    public Clases(String nombre, int seccion, int edificio, int salon, String Aire) {
+    public Clases(String nombre, String seccion, int edificio, int salon, String Aire) {
         this.nombre = nombre;
         this.seccion = seccion;
         this.edificio = edificio;
@@ -36,11 +36,11 @@ public class Clases {
         this.nombre = nombre;
     }
 
-    public int getSeccion() {
+    public String getSeccion() {
         return seccion;
     }
 
-    public void setSeccion(int seccion) {
+    public void setSeccion(String seccion) {
         this.seccion = seccion;
     }
 
@@ -70,6 +70,6 @@ public class Clases {
 
     @Override
     public String toString() {
-        return "Nombre=" + nombre + ", Seccion=" + seccion + ", Edificio=" + edificio + ", Salon=" + salon + ", Aire=" + Aire + '}';
+        return "Nombre=" + nombre ;
     }
 }
