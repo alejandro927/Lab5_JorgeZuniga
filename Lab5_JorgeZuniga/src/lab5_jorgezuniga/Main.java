@@ -62,7 +62,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Maestro = new javax.swing.JPopupMenu();
+        Master = new javax.swing.JPopupMenu();
         Eliminar = new javax.swing.JMenuItem();
         Modificar = new javax.swing.JMenu();
         Nombre = new javax.swing.JMenuItem();
@@ -76,6 +76,11 @@ public class Main extends javax.swing.JFrame {
         Seccion = new javax.swing.JMenuItem();
         Edificion = new javax.swing.JMenuItem();
         Salon = new javax.swing.JMenuItem();
+        Carrera = new javax.swing.JPopupMenu();
+        EliminarCar = new javax.swing.JMenuItem();
+        ModificarCarrera = new javax.swing.JMenu();
+        SalarioModi = new javax.swing.JMenuItem();
+        JefeCar = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -143,7 +148,7 @@ public class Main extends javax.swing.JFrame {
                 EliminarActionPerformed(evt);
             }
         });
-        Maestro.add(Eliminar);
+        Master.add(Eliminar);
 
         Modificar.setText("modificar");
 
@@ -179,7 +184,7 @@ public class Main extends javax.swing.JFrame {
         });
         Modificar.add(Salario);
 
-        Maestro.add(Modificar);
+        Master.add(Modificar);
 
         EliminarClases.setText("Eliminar");
         EliminarClases.addActionListener(new java.awt.event.ActionListener() {
@@ -224,6 +229,34 @@ public class Main extends javax.swing.JFrame {
         ModificarClases.add(Salon);
 
         Clases.add(ModificarClases);
+
+        EliminarCar.setText("Eliminar");
+        EliminarCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarCarActionPerformed(evt);
+            }
+        });
+        Carrera.add(EliminarCar);
+
+        ModificarCarrera.setText("Modificar");
+
+        SalarioModi.setText("jMenuItem2");
+        SalarioModi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalarioModiActionPerformed(evt);
+            }
+        });
+        ModificarCarrera.add(SalarioModi);
+
+        JefeCar.setText("Jefe");
+        JefeCar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JefeCarActionPerformed(evt);
+            }
+        });
+        ModificarCarrera.add(JefeCar);
+
+        Carrera.add(ModificarCarrera);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -600,6 +633,11 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane3.addTab("Maestros", jScrollPane2);
 
         ListaCarreras.setModel(new DefaultListModel());
+        ListaCarreras.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaCarrerasMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(ListaCarreras);
 
         jTabbedPane3.addTab("Carreras", jScrollPane3);
@@ -617,12 +655,22 @@ public class Main extends javax.swing.JFrame {
 
         ListaAlumnos.setModel(new DefaultListModel()
         );
+        ListaAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaAlumnosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListaAlumnos);
 
         jTabbedPane3.addTab("Alumnos", jScrollPane1);
 
         ListaClases.setModel(new DefaultListModel()
         );
+        ListaClases.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ListaClasesMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(ListaClases);
 
         jTabbedPane3.addTab("Clases", jScrollPane5);
@@ -820,7 +868,7 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (ListaMaestros.getSelectedIndex() >= 0) {
             if (evt.isMetaDown()) {
-                Maestro.show(evt.getComponent(),
+                Master.show(evt.getComponent(),
                         evt.getX(), evt.getY());
             }
         }
@@ -828,6 +876,12 @@ public class Main extends javax.swing.JFrame {
 
     private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
         // TODO add your handling code here:
+        if (ListaMaestros.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                Master.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+        }
     }//GEN-LAST:event_jTree1MouseClicked
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
@@ -971,6 +1025,83 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SalonActionPerformed
 
+    private void ListaAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaAlumnosMouseClicked
+        // TODO add your handling code here:
+        if (ListaClases.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                Clases.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_ListaAlumnosMouseClicked
+
+    private void ListaCarrerasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaCarrerasMouseClicked
+        // TODO add your handling code here:
+       if (ListaCarreras.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+               Carrera.show(evt.getComponent(),evt.getX(),evt.getY());
+           }
+        }
+    }//GEN-LAST:event_ListaCarrerasMouseClicked
+
+    private void ListaClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaClasesMouseClicked
+        // TODO add your handling code here:
+        if (ListaClases.getSelectedIndex() >= 0) {
+            if (evt.isMetaDown()) {
+                Clases.show(evt.getComponent(),
+                        evt.getX(), evt.getY());
+            }
+        }
+    }//GEN-LAST:event_ListaClasesMouseClicked
+
+    private void EliminarCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarCarActionPerformed
+        
+        try{
+           if (ListaCarreras.getSelectedIndex() >= 0) {
+            DefaultListModel modelo
+                    = (DefaultListModel) ListaCarreras.getModel();
+            modelo.remove(ListaCarreras.getSelectedIndex());
+            ListaCarreras.setModel(modelo);
+            JOptionPane.showMessageDialog(this,
+                    "Eliminado exitosamente");
+        }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_EliminarCarActionPerformed
+
+    private void SalarioModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalarioModiActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaCarreras.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaCarreras.getModel();
+                ((Carrera) modeloLISTA.get(ListaCarreras.getSelectedIndex())) .setCostoMensual(Integer.parseInt(JOptionPane.showInputDialog("Costo")));
+                ListaCarreras.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_SalarioModiActionPerformed
+
+    private void JefeCarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JefeCarActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaCarreras.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaCarreras.getModel();
+                ((Carrera) modeloLISTA.get(ListaCarreras.getSelectedIndex())) .setJefeDeCarrera(JOptionPane.showInputDialog("Nombre Jefe"));
+                ListaCarreras.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+        
+    }//GEN-LAST:event_JefeCarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1011,6 +1142,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem Apellido;
     private javax.swing.JTextField ApellidoAlumno;
     private javax.swing.JTextField ApellidoMaestro;
+    private javax.swing.JPopupMenu Carrera;
     private javax.swing.JComboBox<String> CarreraAlumno;
     private javax.swing.JPopupMenu Clases;
     private javax.swing.JComboBox<String> ClasesMaestro;
@@ -1021,6 +1153,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField EdificioClase;
     private javax.swing.JMenuItem Edificion;
     private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JMenuItem EliminarCar;
     private javax.swing.JMenuItem EliminarClases;
     private javax.swing.JComboBox<String> GeneroAlumno;
     private javax.swing.JComboBox<String> GeneroMaestro;
@@ -1028,13 +1161,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton GuardarCarrera;
     private javax.swing.JButton GuardarClase;
     private javax.swing.JButton GuardarMaestro;
+    private javax.swing.JMenuItem JefeCar;
     private javax.swing.JTextField JefeCarrera;
     private javax.swing.JList<String> ListaAlumnos;
     private javax.swing.JList<String> ListaCarreras;
     private javax.swing.JList<String> ListaClases;
     private javax.swing.JList<String> ListaMaestros;
-    private javax.swing.JPopupMenu Maestro;
+    private javax.swing.JPopupMenu Master;
     private javax.swing.JMenu Modificar;
+    private javax.swing.JMenu ModificarCarrera;
     private javax.swing.JMenu ModificarClases;
     private javax.swing.JMenuItem Nombre;
     private javax.swing.JTextField NombreAlumno;
@@ -1044,6 +1179,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> NombresCarreras;
     private javax.swing.JMenuItem Salario;
     private javax.swing.JFormattedTextField SalarioMaestro;
+    private javax.swing.JMenuItem SalarioModi;
     private javax.swing.JMenuItem Salon;
     private javax.swing.JFormattedTextField SalonClase;
     private javax.swing.JMenuItem Seccion;
