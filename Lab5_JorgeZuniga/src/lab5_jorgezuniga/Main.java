@@ -356,6 +356,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        GuardarAlumno.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        GuardarAlumno.setForeground(new java.awt.Color(0, 153, 153));
         GuardarAlumno.setText("Guardar");
         GuardarAlumno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -434,6 +436,8 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 0, 153));
         jLabel11.setText("Clases que imparte");
 
+        GuardarMaestro.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        GuardarMaestro.setForeground(new java.awt.Color(0, 153, 153));
         GuardarMaestro.setText("Guardar");
         GuardarMaestro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -554,6 +558,8 @@ public class Main extends javax.swing.JFrame {
 
         AireAcondicionadoClase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Si", "No" }));
 
+        GuardarClase.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        GuardarClase.setForeground(new java.awt.Color(0, 153, 153));
         GuardarClase.setText("Guardar");
         GuardarClase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -631,8 +637,10 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Clase", jPanel6);
 
+        jLabel1.setForeground(new java.awt.Color(0, 0, 153));
         jLabel1.setText("Nombre de la carrera");
 
+        jLabel18.setForeground(new java.awt.Color(0, 0, 153));
         jLabel18.setText("Costo Mensual");
 
         try {
@@ -641,8 +649,11 @@ public class Main extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        jLabel19.setForeground(new java.awt.Color(0, 0, 153));
         jLabel19.setText("Jefe de carrera");
 
+        GuardarCarrera.setFont(new java.awt.Font("DialogInput", 1, 18)); // NOI18N
+        GuardarCarrera.setForeground(new java.awt.Color(0, 153, 153));
         GuardarCarrera.setText("Guardar");
         GuardarCarrera.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -769,43 +780,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_GeneroMaestroActionPerformed
 
-    private void GuardarAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlumnoMouseClicked
-        // TODO add your handling code here:
-        try {
-            String nombre, apellido, genero = "", Carrera;
-            int edad, ID;
-            if (CarreraAlumno.getSelectedIndex() >= 0) {
-                Carrera = CarreraAlumno.getSelectedItem().toString();
-                nombre = NombreAlumno.getText();
-                apellido = ApellidoAlumno.getText();
-                if (GeneroAlumno.getSelectedItem() == "Masculino") {
-                    genero = "Masculino";
-                }
-                if (GeneroAlumno.getSelectedItem() == "Femenino") {
-                    genero = "Femenino";
-                }
-                edad = Integer.parseInt(EdadAlumno.getText());
-                ID = 0 + ran.nextInt(1000);
-
-                DefaultListModel modelo = (DefaultListModel) ListaAlumnos.getModel();
-
-                modelo.addElement(new Alumnos(ID, Carrera, nombre, apellido, edad, genero));
-                ListaAlumnos.setModel(modelo);
-                NombreAlumno.setText("");
-                ApellidoAlumno.setText("");
-                CarreraAlumno.setSelectedIndex(0);
-                EdadAlumno.setText("");
-                GeneroAlumno.setSelectedIndex(0);
-                JOptionPane.showMessageDialog(this, "Se guardo con exito!!");
-            } else {
-                JOptionPane.showMessageDialog(this, "No hay Carrera que seleccionar!!\n"
-                        + "Cree una :)");
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error!");
-        }
-    }//GEN-LAST:event_GuardarAlumnoMouseClicked
-
     private void CarreraAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarreraAlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CarreraAlumnoActionPerformed
@@ -813,43 +787,6 @@ public class Main extends javax.swing.JFrame {
     private void GeneroAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GeneroAlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_GeneroAlumnoActionPerformed
-
-    private void GuardarMaestroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMaestroMouseClicked
-        // TODO add your handling code here:
-        try {
-            if (ClasesMaestro.getSelectedIndex() >= 0) {
-                String nombre, apellido, clase, genero = "";
-                int salario, edad;
-                nombre = NombreMaestro.getText();
-                apellido = ApellidoMaestro.getText();
-                salario = Integer.parseInt(SalarioMaestro.getText());
-                edad = Integer.parseInt(EdadMestro.getText());
-
-                if (GeneroMaestro.getSelectedItem() == "Masculino") {
-                    genero = "Masculino";
-                }
-                if (GeneroMaestro.getSelectedItem() == "Femenino") {
-                    genero = "Femenino";
-                }
-                clase = ClasesMaestro.getSelectedItem().toString();
-                DefaultListModel modelo = (DefaultListModel) ListaMaestros.getModel();
-                modelo.addElement(new Maestro(salario, nombre, apellido, edad, genero, clase));
-                ListaMaestros.setModel(modelo);
-                ClasesMaestro.setSelectedIndex(0);
-                GeneroMaestro.setSelectedItem(0);
-                NombreMaestro.setText("");
-                ApellidoMaestro.setText("");
-                EdadMestro.setText("");
-                SalarioMaestro.setText("");
-                JOptionPane.showMessageDialog(this, "Guardado exitosamente!!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Mientras no hayan clases no puede haber maestros!!");
-            }
-        } catch (Exception e) {
-
-        }
-
-    }//GEN-LAST:event_GuardarMaestroMouseClicked
 
     private void GuardarCarreraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarCarreraMouseClicked
         // TODO add your handling code here:
@@ -897,40 +834,6 @@ public class Main extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_GuardarCarreraMouseClicked
-
-    private void GuardarClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarClaseMouseClicked
-        // TODO add your handling code here:
-        try {
-            String nombre, AireAC = "", seccion;
-            int edificio, salon;
-            nombre = NombreClase.getText();
-            seccion = (SeccionClase.getText());
-            edificio = Integer.parseInt(EdificioClase.getText());
-            salon = Integer.parseInt(SalonClase.getText());
-            if (AireAcondicionadoClase.getSelectedItem().equals("Si")) {
-                AireAC = "Si";
-            } else if (AireAcondicionadoClase.getSelectedItem().equals("No")) {
-                AireAC = "No";
-            }
-
-            DefaultListModel modelo = (DefaultListModel) ListaClases.getModel();
-            modelo.addElement(new Clases(nombre, seccion, edificio, salon, AireAC));
-            ListaClases.setModel(modelo);
-
-            DefaultComboBoxModel modelo0 = (DefaultComboBoxModel) ClasesMaestro.getModel();
-            modelo0.addElement(new Clases(nombre, seccion, edificio, salon, AireAC));
-            ClasesMaestro.setModel(modelo0);
-
-            AireAcondicionadoClase.setSelectedIndex(0);
-            NombreClase.setText("");
-            SeccionClase.setText("");
-            SalonClase.setText("");
-            JOptionPane.showMessageDialog(this, "Se guardo con exito!!");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error!!");
-        }
-
-    }//GEN-LAST:event_GuardarClaseMouseClicked
 
     private void ApellidoMaestroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoMaestroActionPerformed
         // TODO add your handling code here:
@@ -1283,6 +1186,112 @@ public class Main extends javax.swing.JFrame {
         PSeleccionada.setGenero(Genero);
         m.reload();
     }//GEN-LAST:event_SexoActionPerformed
+
+    private void GuardarAlumnoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarAlumnoMouseClicked
+        // TODO add your handling code here:
+        try {
+            String nombre, apellido, genero = "", Carrera;
+            int edad, ID;
+            if (CarreraAlumno.getSelectedIndex() >= 0) {
+                Carrera = CarreraAlumno.getSelectedItem().toString();
+                nombre = NombreAlumno.getText();
+                apellido = ApellidoAlumno.getText();
+                if (GeneroAlumno.getSelectedItem() == "Masculino") {
+                    genero = "Masculino";
+                }
+                if (GeneroAlumno.getSelectedItem() == "Femenino") {
+                    genero = "Femenino";
+                }
+                edad = Integer.parseInt(EdadAlumno.getText());
+                ID = 0 + ran.nextInt(1000);
+
+                DefaultListModel modelo = (DefaultListModel) ListaAlumnos.getModel();
+
+                modelo.addElement(new Alumnos(ID, Carrera, nombre, apellido, edad, genero));
+                ListaAlumnos.setModel(modelo);
+                NombreAlumno.setText("");
+                ApellidoAlumno.setText("");
+                CarreraAlumno.setSelectedIndex(0);
+                EdadAlumno.setText("");
+                GeneroAlumno.setSelectedIndex(0);
+                JOptionPane.showMessageDialog(this, "Se guardo con exito!!");
+            } else {
+                JOptionPane.showMessageDialog(this, "No hay Carrera que seleccionar!!\n"
+                    + "Cree una :)");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error!");
+        }
+    }//GEN-LAST:event_GuardarAlumnoMouseClicked
+
+    private void GuardarMaestroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarMaestroMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (ClasesMaestro.getSelectedIndex() >= 0) {
+                String nombre, apellido, clase, genero = "";
+                int salario, edad;
+                nombre = NombreMaestro.getText();
+                apellido = ApellidoMaestro.getText();
+                salario = Integer.parseInt(SalarioMaestro.getText());
+                edad = Integer.parseInt(EdadMestro.getText());
+
+                if (GeneroMaestro.getSelectedItem() == "Masculino") {
+                    genero = "Masculino";
+                }
+                if (GeneroMaestro.getSelectedItem() == "Femenino") {
+                    genero = "Femenino";
+                }
+                clase = ClasesMaestro.getSelectedItem().toString();
+                DefaultListModel modelo = (DefaultListModel) ListaMaestros.getModel();
+                modelo.addElement(new Maestro(salario, nombre, apellido, edad, genero, clase));
+                ListaMaestros.setModel(modelo);
+                ClasesMaestro.setSelectedIndex(0);
+                GeneroMaestro.setSelectedItem(0);
+                NombreMaestro.setText("");
+                ApellidoMaestro.setText("");
+                EdadMestro.setText("");
+                SalarioMaestro.setText("");
+                JOptionPane.showMessageDialog(this, "Guardado exitosamente!!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Mientras no hayan clases no puede haber maestros!!");
+            }
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_GuardarMaestroMouseClicked
+
+    private void GuardarClaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarClaseMouseClicked
+        // TODO add your handling code here:
+        try {
+            String nombre, AireAC = "", seccion;
+            int edificio, salon;
+            nombre = NombreClase.getText();
+            seccion = (SeccionClase.getText());
+            edificio = Integer.parseInt(EdificioClase.getText());
+            salon = Integer.parseInt(SalonClase.getText());
+            if (AireAcondicionadoClase.getSelectedItem().equals("Si")) {
+                AireAC = "Si";
+            } else if (AireAcondicionadoClase.getSelectedItem().equals("No")) {
+                AireAC = "No";
+            }
+
+            DefaultListModel modelo = (DefaultListModel) ListaClases.getModel();
+            modelo.addElement(new Clases(nombre, seccion, edificio, salon, AireAC));
+            ListaClases.setModel(modelo);
+
+            DefaultComboBoxModel modelo0 = (DefaultComboBoxModel) ClasesMaestro.getModel();
+            modelo0.addElement(new Clases(nombre, seccion, edificio, salon, AireAC));
+            ClasesMaestro.setModel(modelo0);
+
+            AireAcondicionadoClase.setSelectedIndex(0);
+            NombreClase.setText("");
+            SeccionClase.setText("");
+            SalonClase.setText("");
+            JOptionPane.showMessageDialog(this, "Se guardo con exito!!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error!!");
+        }
+    }//GEN-LAST:event_GuardarClaseMouseClicked
 
     /**
      * @param args the command line arguments
