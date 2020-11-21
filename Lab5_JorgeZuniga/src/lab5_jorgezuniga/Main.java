@@ -10,6 +10,8 @@ import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -63,7 +65,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         Master = new javax.swing.JPopupMenu();
-        Eliminar = new javax.swing.JMenuItem();
+        EliminarMaestro = new javax.swing.JMenuItem();
         Modificar = new javax.swing.JMenu();
         Nombre = new javax.swing.JMenuItem();
         Apellido = new javax.swing.JMenuItem();
@@ -81,6 +83,15 @@ public class Main extends javax.swing.JFrame {
         ModificarCarrera = new javax.swing.JMenu();
         SalarioModi = new javax.swing.JMenuItem();
         JefeCar = new javax.swing.JMenuItem();
+        Alumnos = new javax.swing.JPopupMenu();
+        PasarArbol1 = new javax.swing.JMenuItem();
+        ModificarArbol = new javax.swing.JPopupMenu();
+        EliminarPersonaArbol = new javax.swing.JMenuItem();
+        modificar = new javax.swing.JMenu();
+        NombAlumno = new javax.swing.JMenuItem();
+        EdaAlumno = new javax.swing.JMenuItem();
+        ApellidAlumno = new javax.swing.JMenuItem();
+        Sexo = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -107,8 +118,8 @@ public class Main extends javax.swing.JFrame {
         GeneroMaestro = new javax.swing.JComboBox<>();
         NombreMaestro = new javax.swing.JTextField();
         ApellidoMaestro = new javax.swing.JTextField();
-        SalarioMaestro = new javax.swing.JFormattedTextField();
         EdadMestro = new javax.swing.JFormattedTextField();
+        SalarioMaestro = new javax.swing.JFormattedTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -135,20 +146,20 @@ public class Main extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         ListaCarreras = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        Arbol = new javax.swing.JTree();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListaAlumnos = new javax.swing.JList<>();
         jScrollPane5 = new javax.swing.JScrollPane();
         ListaClases = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
 
-        Eliminar.setText("Eliminar");
-        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+        EliminarMaestro.setText("Eliminar");
+        EliminarMaestro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarActionPerformed(evt);
+                EliminarMaestroActionPerformed(evt);
             }
         });
-        Master.add(Eliminar);
+        Master.add(EliminarMaestro);
 
         Modificar.setText("modificar");
 
@@ -204,7 +215,7 @@ public class Main extends javax.swing.JFrame {
         });
         ModificarClases.add(NombreClases);
 
-        Seccion.setText("Apellido");
+        Seccion.setText("Seccion");
         Seccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SeccionActionPerformed(evt);
@@ -212,7 +223,7 @@ public class Main extends javax.swing.JFrame {
         });
         ModificarClases.add(Seccion);
 
-        Edificion.setText("Edad");
+        Edificion.setText("Edificio");
         Edificion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EdificionActionPerformed(evt);
@@ -220,7 +231,7 @@ public class Main extends javax.swing.JFrame {
         });
         ModificarClases.add(Edificion);
 
-        Salon.setText("Salario");
+        Salon.setText("Salon");
         Salon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalonActionPerformed(evt);
@@ -240,7 +251,7 @@ public class Main extends javax.swing.JFrame {
 
         ModificarCarrera.setText("Modificar");
 
-        SalarioModi.setText("jMenuItem2");
+        SalarioModi.setText("Salario");
         SalarioModi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SalarioModiActionPerformed(evt);
@@ -257,6 +268,58 @@ public class Main extends javax.swing.JFrame {
         ModificarCarrera.add(JefeCar);
 
         Carrera.add(ModificarCarrera);
+
+        PasarArbol1.setText("Pasar al Arbol");
+        PasarArbol1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasarArbol1ActionPerformed(evt);
+            }
+        });
+        Alumnos.add(PasarArbol1);
+
+        EliminarPersonaArbol.setText("Eliminar");
+        EliminarPersonaArbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarPersonaArbolActionPerformed(evt);
+            }
+        });
+        ModificarArbol.add(EliminarPersonaArbol);
+
+        modificar.setText("ModificarPersona");
+
+        NombAlumno.setText("Nombre");
+        NombAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombAlumnoActionPerformed(evt);
+            }
+        });
+        modificar.add(NombAlumno);
+
+        EdaAlumno.setText("Edad ");
+        EdaAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EdaAlumnoActionPerformed(evt);
+            }
+        });
+        modificar.add(EdaAlumno);
+
+        ApellidAlumno.setText("Apellido");
+        ApellidAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApellidAlumnoActionPerformed(evt);
+            }
+        });
+        modificar.add(ApellidAlumno);
+
+        Sexo.setText("Sexo");
+        Sexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SexoActionPerformed(evt);
+            }
+        });
+        modificar.add(Sexo);
+
+        ModificarArbol.add(modificar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -399,6 +462,12 @@ public class Main extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        try {
+            SalarioMaestro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -419,13 +488,16 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ClasesMaestro, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(SalarioMaestro, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(NombreMaestro, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(GeneroMaestro, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ApellidoMaestro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
-                            .addComponent(EdadMestro)))
+                            .addComponent(EdadMestro)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ClasesMaestro, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(SalarioMaestro, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(NombreMaestro, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(GeneroMaestro, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ApellidoMaestro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(185, 185, 185)
                         .addComponent(GuardarMaestro, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -643,13 +715,13 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane3.addTab("Carreras", jScrollPane3);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Facultad");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        Arbol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTree1MouseClicked(evt);
+                ArbolMouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(jTree1);
+        jScrollPane4.setViewportView(Arbol);
 
         jTabbedPane3.addTab("Arbol", jScrollPane4);
 
@@ -874,27 +946,34 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ListaMaestrosMouseClicked
 
-    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+    private void ArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ArbolMouseClicked
         // TODO add your handling code here:
-        if (ListaMaestros.getSelectedIndex() >= 0) {
-            if (evt.isMetaDown()) {
-                Master.show(evt.getComponent(),
-                        evt.getX(), evt.getY());
+        if (evt.isMetaDown()) {
+            int row = Arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+            Arbol.setSelectionRow(row);
+            Object v1= Arbol.getSelectionPath().getLastPathComponent();
+            nodo = (DefaultMutableTreeNode) v1;
+            if (nodo.getUserObject() instanceof Alumnos) {
+                PSeleccionada = (Alumnos) nodo.getUserObject();
+                ModificarArbol.show(evt.getComponent(),evt.getX(), evt.getY());
             }
         }
-    }//GEN-LAST:event_jTree1MouseClicked
+    }//GEN-LAST:event_ArbolMouseClicked
 
-    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+    private void EliminarMaestroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarMaestroActionPerformed
         // TODO add your handling code here:
+           try{
            if (ListaMaestros.getSelectedIndex() >= 0) {
-            DefaultListModel modelo
-                    = (DefaultListModel) ListaMaestros.getModel();
+            DefaultListModel modelo = (DefaultListModel) ListaMaestros.getModel();
             modelo.remove(ListaMaestros.getSelectedIndex());
             ListaMaestros.setModel(modelo);
             JOptionPane.showMessageDialog(this,
                     "Eliminado exitosamente");
         }
-    }//GEN-LAST:event_EliminarActionPerformed
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_EliminarMaestroActionPerformed
 
     private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
         // TODO add your handling code here:
@@ -1027,9 +1106,9 @@ public class Main extends javax.swing.JFrame {
 
     private void ListaAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaAlumnosMouseClicked
         // TODO add your handling code here:
-        if (ListaClases.getSelectedIndex() >= 0) {
+        if (ListaAlumnos.getSelectedIndex() >= 0) {
             if (evt.isMetaDown()) {
-                Clases.show(evt.getComponent(),
+                Alumnos.show(evt.getComponent(),
                         evt.getX(), evt.getY());
             }
         }
@@ -1102,6 +1181,109 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_JefeCarActionPerformed
 
+    private void PasarArbol1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasarArbol1ActionPerformed
+        // TODO add your handling code here:
+        try{
+        if (ListaAlumnos.getSelectedIndex() >= 0) {
+            DefaultTreeModel modeloARBOL= (DefaultTreeModel) Arbol.getModel();
+            DefaultMutableTreeNode inicio= (DefaultMutableTreeNode) modeloARBOL.getRoot();
+            //obtener la persona a guardar
+            DefaultListModel modeloLISTA= (DefaultListModel) ListaAlumnos.getModel();
+            
+            String apellido, nombre,genero,Carrera;
+            int edad,NumeroCuenta; 
+            
+            apellido = ((Alumnos) modeloLISTA.get(ListaAlumnos.getSelectedIndex())).getApellido();
+            nombre = ((Alumnos) modeloLISTA.get(ListaAlumnos.getSelectedIndex())).getNombre();
+            genero = ((Alumnos) modeloLISTA.get(ListaAlumnos.getSelectedIndex())).getGenero();
+            Carrera = ((Alumnos) modeloLISTA.get(ListaAlumnos.getSelectedIndex())).getCarrera();
+            edad = ((Alumnos) modeloLISTA.get(ListaAlumnos.getSelectedIndex())).getEdad();
+            NumeroCuenta = (int) ((Alumnos) modeloLISTA.get(ListaAlumnos.getSelectedIndex())).getNumeroCuenta();
+            
+            int centinela = -1;
+            for (int i = 0; i < inicio.getChildCount(); i++) {
+                if (inicio.getChildAt(i).toString().equals(Carrera)) {
+                    DefaultMutableTreeNode p= new DefaultMutableTreeNode(new Alumnos(NumeroCuenta, Carrera, nombre, apellido, edad, genero));
+                    ((DefaultMutableTreeNode) inicio.getChildAt(i)).add(p);
+                    centinela = 1;
+                } 
+            } 
+            
+            if (centinela == -1) {
+                DefaultMutableTreeNode n = new DefaultMutableTreeNode(Carrera);
+                DefaultMutableTreeNode p = new DefaultMutableTreeNode(new Alumnos(NumeroCuenta, Carrera, nombre, apellido, edad, genero));
+                n.add(p);
+                inicio.add(n);
+            }
+            modeloARBOL.reload();
+            
+            DefaultListModel modelo = (DefaultListModel) ListaAlumnos.getModel();
+            modelo.remove(ListaAlumnos.getSelectedIndex());
+            ListaAlumnos.setModel(modelo);
+                        
+        } else {
+            JOptionPane.showMessageDialog(this,"No hay persona seleccionada");
+        }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_PasarArbol1ActionPerformed
+
+    private void EliminarPersonaArbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarPersonaArbolActionPerformed
+        // TODO add your handling code here:
+        try{
+           
+            DefaultTreeModel m = (DefaultTreeModel) Arbol.getModel();
+            m.removeNodeFromParent(nodo);
+            m.reload();
+        
+        
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_EliminarPersonaArbolActionPerformed
+
+    private void NombAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombAlumnoActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel m = (DefaultTreeModel) Arbol.getModel();
+        PSeleccionada.setNombre(JOptionPane.showInputDialog("Nombre"));
+        m.reload();
+        
+    }//GEN-LAST:event_NombAlumnoActionPerformed
+
+    private void EdaAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdaAlumnoActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel m = (DefaultTreeModel) Arbol.getModel();
+        PSeleccionada.setEdad(Integer.parseInt(JOptionPane.showInputDialog("Edad")));
+        m.reload();
+    }//GEN-LAST:event_EdaAlumnoActionPerformed
+
+    private void ApellidAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidAlumnoActionPerformed
+        // TODO add your handling code here:
+        DefaultTreeModel m = (DefaultTreeModel) Arbol.getModel();
+        PSeleccionada.setApellido(JOptionPane.showInputDialog("Apellido"));
+        m.reload();
+    }//GEN-LAST:event_ApellidAlumnoActionPerformed
+
+    private void SexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SexoActionPerformed
+        DefaultTreeModel m = (DefaultTreeModel) Arbol.getModel();
+        int t=0;
+        String Genero="";
+        t = Integer.parseInt(JOptionPane.showInputDialog(this,"1.M\n"
+                + "2.F\n"));
+        while(t<=0 || t >=3){
+            t = Integer.parseInt(JOptionPane.showInputDialog(this,"1.M\n"
+                + "2.F\n"));
+        }
+        if (t==1) {
+            Genero = "Masculino";
+        }else if (t==2) {
+            Genero = "Femenino";
+        }
+        PSeleccionada.setGenero(Genero);
+        m.reload();
+    }//GEN-LAST:event_SexoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1139,22 +1321,27 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AireAcondicionadoClase;
+    private javax.swing.JPopupMenu Alumnos;
+    private javax.swing.JMenuItem ApellidAlumno;
     private javax.swing.JMenuItem Apellido;
     private javax.swing.JTextField ApellidoAlumno;
     private javax.swing.JTextField ApellidoMaestro;
+    private javax.swing.JTree Arbol;
     private javax.swing.JPopupMenu Carrera;
     private javax.swing.JComboBox<String> CarreraAlumno;
     private javax.swing.JPopupMenu Clases;
     private javax.swing.JComboBox<String> ClasesMaestro;
     private javax.swing.JFormattedTextField CostoMensualCarrera;
+    private javax.swing.JMenuItem EdaAlumno;
     private javax.swing.JMenuItem Edad;
     private javax.swing.JFormattedTextField EdadAlumno;
     private javax.swing.JFormattedTextField EdadMestro;
     private javax.swing.JFormattedTextField EdificioClase;
     private javax.swing.JMenuItem Edificion;
-    private javax.swing.JMenuItem Eliminar;
     private javax.swing.JMenuItem EliminarCar;
     private javax.swing.JMenuItem EliminarClases;
+    private javax.swing.JMenuItem EliminarMaestro;
+    private javax.swing.JMenuItem EliminarPersonaArbol;
     private javax.swing.JComboBox<String> GeneroAlumno;
     private javax.swing.JComboBox<String> GeneroMaestro;
     private javax.swing.JButton GuardarAlumno;
@@ -1169,14 +1356,17 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JList<String> ListaMaestros;
     private javax.swing.JPopupMenu Master;
     private javax.swing.JMenu Modificar;
+    private javax.swing.JPopupMenu ModificarArbol;
     private javax.swing.JMenu ModificarCarrera;
     private javax.swing.JMenu ModificarClases;
+    private javax.swing.JMenuItem NombAlumno;
     private javax.swing.JMenuItem Nombre;
     private javax.swing.JTextField NombreAlumno;
     private javax.swing.JTextField NombreClase;
     private javax.swing.JMenuItem NombreClases;
     private javax.swing.JTextField NombreMaestro;
     private javax.swing.JComboBox<String> NombresCarreras;
+    private javax.swing.JMenuItem PasarArbol1;
     private javax.swing.JMenuItem Salario;
     private javax.swing.JFormattedTextField SalarioMaestro;
     private javax.swing.JMenuItem SalarioModi;
@@ -1184,6 +1374,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField SalonClase;
     private javax.swing.JMenuItem Seccion;
     private javax.swing.JTextField SeccionClase;
+    private javax.swing.JMenuItem Sexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1216,9 +1407,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTree jTree1;
+    private javax.swing.JMenu modificar;
     // End of variables declaration//GEN-END:variables
     ArrayList alumnos = new ArrayList();
     ArrayList carreras = new ArrayList();
     Random ran = new Random();
+    DefaultMutableTreeNode nodo;
+    Alumnos PSeleccionada;
 }
