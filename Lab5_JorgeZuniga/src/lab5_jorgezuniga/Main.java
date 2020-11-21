@@ -62,8 +62,20 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PopupMenu_Modificar = new javax.swing.JPopupMenu();
-        PopupMenu_Eliminar = new javax.swing.JPopupMenu();
+        Maestro = new javax.swing.JPopupMenu();
+        Eliminar = new javax.swing.JMenuItem();
+        Modificar = new javax.swing.JMenu();
+        Nombre = new javax.swing.JMenuItem();
+        Apellido = new javax.swing.JMenuItem();
+        Edad = new javax.swing.JMenuItem();
+        Salario = new javax.swing.JMenuItem();
+        Clases = new javax.swing.JPopupMenu();
+        EliminarClases = new javax.swing.JMenuItem();
+        ModificarClases = new javax.swing.JMenu();
+        NombreClases = new javax.swing.JMenuItem();
+        Seccion = new javax.swing.JMenuItem();
+        Edificion = new javax.swing.JMenuItem();
+        Salon = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -119,7 +131,99 @@ public class Main extends javax.swing.JFrame {
         ListaCarreras = new javax.swing.JList<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListaAlumnos = new javax.swing.JList<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        ListaClases = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
+
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarActionPerformed(evt);
+            }
+        });
+        Maestro.add(Eliminar);
+
+        Modificar.setText("modificar");
+
+        Nombre.setText("Nombre");
+        Nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreActionPerformed(evt);
+            }
+        });
+        Modificar.add(Nombre);
+
+        Apellido.setText("Apellido");
+        Apellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApellidoActionPerformed(evt);
+            }
+        });
+        Modificar.add(Apellido);
+
+        Edad.setText("Edad");
+        Edad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EdadActionPerformed(evt);
+            }
+        });
+        Modificar.add(Edad);
+
+        Salario.setText("Salario");
+        Salario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalarioActionPerformed(evt);
+            }
+        });
+        Modificar.add(Salario);
+
+        Maestro.add(Modificar);
+
+        EliminarClases.setText("Eliminar");
+        EliminarClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarClasesActionPerformed(evt);
+            }
+        });
+        Clases.add(EliminarClases);
+
+        ModificarClases.setText("modificar");
+
+        NombreClases.setText("Nombre");
+        NombreClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreClasesActionPerformed(evt);
+            }
+        });
+        ModificarClases.add(NombreClases);
+
+        Seccion.setText("Apellido");
+        Seccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeccionActionPerformed(evt);
+            }
+        });
+        ModificarClases.add(Seccion);
+
+        Edificion.setText("Edad");
+        Edificion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EdificionActionPerformed(evt);
+            }
+        });
+        ModificarClases.add(Edificion);
+
+        Salon.setText("Salario");
+        Salon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalonActionPerformed(evt);
+            }
+        });
+        ModificarClases.add(Salon);
+
+        Clases.add(ModificarClases);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,7 +318,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(CarreraAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(GuardarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Alumno", jPanel2);
@@ -321,7 +425,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(ClasesMaestro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(GuardarMaestro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -417,7 +521,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(AireAcondicionadoClase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(GuardarClase, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Clase", jPanel6);
@@ -476,7 +580,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(JefeCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(GuardarCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
         );
@@ -500,9 +604,28 @@ public class Main extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("Carreras", jScrollPane3);
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Facultad");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jTree1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTree1MouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTree1);
 
         jTabbedPane3.addTab("Arbol", jScrollPane4);
+
+        ListaAlumnos.setModel(new DefaultListModel()
+        );
+        jScrollPane1.setViewportView(ListaAlumnos);
+
+        jTabbedPane3.addTab("Alumnos", jScrollPane1);
+
+        ListaClases.setModel(new DefaultListModel()
+        );
+        jScrollPane5.setViewportView(ListaClases);
+
+        jTabbedPane3.addTab("Clases", jScrollPane5);
 
         jTabbedPane1.addTab("Modificar y Eliminar", jTabbedPane3);
 
@@ -516,7 +639,7 @@ public class Main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
         pack();
@@ -581,7 +704,7 @@ public class Main extends javax.swing.JFrame {
                 apellido = ApellidoMaestro.getText();
                 salario = Integer.parseInt(SalarioMaestro.getText());
                 edad = Integer.parseInt(EdadMestro.getText());
-                
+
                 if (GeneroMaestro.getSelectedItem() == "Masculino") {
                     genero = "Masculino";
                 }
@@ -614,39 +737,39 @@ public class Main extends javax.swing.JFrame {
             if (NombresCarreras.getSelectedIndex() < 0) {
                 JOptionPane.showMessageDialog(this, "No hay mas carreras que se puedan anadir!!\n"
                         + "Buen dia :)");
-            }else{
-            String nombre = "", facultad = "", jefeCarrera;
-            int Costo;
-            Costo = Integer.parseInt(CostoMensualCarrera.getText());
-            jefeCarrera = JefeCarrera.getText();
-            if (NombresCarreras.getSelectedItem().toString().equals("Finanzas") || NombresCarreras.getSelectedItem().toString().equals("Derecho")
-                    || NombresCarreras.getSelectedItem().toString().equals("Administracion de Empresas") || NombresCarreras.getSelectedItem().toString().equals("Diseño Grafico")
-                    || NombresCarreras.getSelectedItem().toString().equals("Mercadotecnia")) {
-                nombre = NombresCarreras.getSelectedItem().toString();
-                facultad = "Licenciaturas";
-            } else if (NombresCarreras.getSelectedItem() == "Sistemas Computacionales" || NombresCarreras.getSelectedItem() == "Industrial" || NombresCarreras.getSelectedItem() == "Mecatronica"
-                    || NombresCarreras.getSelectedItem() == "Biomedica" || NombresCarreras.getSelectedItem() == "Energia") {
-                nombre = NombresCarreras.getSelectedItem().toString();
-                facultad = "Ingenierías";
-            } else if (NombresCarreras.getSelectedItem() == "Medicina" || NombresCarreras.getSelectedItem() == "Cirugía" || NombresCarreras.getSelectedItem() == "Odontología"
-                    || NombresCarreras.getSelectedItem() == "Nutrición" || NombresCarreras.getSelectedItem() == "Terapia Física"
-                    || NombresCarreras.getSelectedItem() == "Ocupacional") {
-                nombre = NombresCarreras.getSelectedItem().toString();
-                facultad = "Ciencias de la Salud:";
-            }
-            
-            DefaultListModel modelo = (DefaultListModel) ListaCarreras.getModel();
-            modelo.addElement(new Carrera(nombre, facultad, Costo, jefeCarrera));
-            ListaCarreras.setModel(modelo);
-            
-            DefaultComboBoxModel modeloCarreras = (DefaultComboBoxModel) CarreraAlumno.getModel();
-            modeloCarreras.addElement(new Carrera(nombre, facultad, Costo, jefeCarrera));
-            CarreraAlumno.setModel(modeloCarreras);
-            NombresCarreras.removeItemAt(NombresCarreras.getSelectedIndex());
-            NombresCarreras.setSelectedIndex(0);
-            CostoMensualCarrera.setText("");
-            JefeCarrera.setText("");
-            JOptionPane.showMessageDialog(this, "Se guardo con exito!!");
+            } else {
+                String nombre = "", facultad = "", jefeCarrera;
+                int Costo;
+                Costo = Integer.parseInt(CostoMensualCarrera.getText());
+                jefeCarrera = JefeCarrera.getText();
+                if (NombresCarreras.getSelectedItem().toString().equals("Finanzas") || NombresCarreras.getSelectedItem().toString().equals("Derecho")
+                        || NombresCarreras.getSelectedItem().toString().equals("Administracion de Empresas") || NombresCarreras.getSelectedItem().toString().equals("Diseño Grafico")
+                        || NombresCarreras.getSelectedItem().toString().equals("Mercadotecnia")) {
+                    nombre = NombresCarreras.getSelectedItem().toString();
+                    facultad = "Licenciaturas";
+                } else if (NombresCarreras.getSelectedItem() == "Sistemas Computacionales" || NombresCarreras.getSelectedItem() == "Industrial" || NombresCarreras.getSelectedItem() == "Mecatronica"
+                        || NombresCarreras.getSelectedItem() == "Biomedica" || NombresCarreras.getSelectedItem() == "Energia") {
+                    nombre = NombresCarreras.getSelectedItem().toString();
+                    facultad = "Ingenierías";
+                } else if (NombresCarreras.getSelectedItem() == "Medicina" || NombresCarreras.getSelectedItem() == "Cirugía" || NombresCarreras.getSelectedItem() == "Odontología"
+                        || NombresCarreras.getSelectedItem() == "Nutrición" || NombresCarreras.getSelectedItem() == "Terapia Física"
+                        || NombresCarreras.getSelectedItem() == "Ocupacional") {
+                    nombre = NombresCarreras.getSelectedItem().toString();
+                    facultad = "Ciencias de la Salud:";
+                }
+
+                DefaultListModel modelo = (DefaultListModel) ListaCarreras.getModel();
+                modelo.addElement(new Carrera(nombre, facultad, Costo, jefeCarrera));
+                ListaCarreras.setModel(modelo);
+
+                DefaultComboBoxModel modeloCarreras = (DefaultComboBoxModel) CarreraAlumno.getModel();
+                modeloCarreras.addElement(new Carrera(nombre, facultad, Costo, jefeCarrera));
+                CarreraAlumno.setModel(modeloCarreras);
+                NombresCarreras.removeItemAt(NombresCarreras.getSelectedIndex());
+                NombresCarreras.setSelectedIndex(0);
+                CostoMensualCarrera.setText("");
+                JefeCarrera.setText("");
+                JOptionPane.showMessageDialog(this, "Se guardo con exito!!");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error!!");
@@ -695,14 +818,158 @@ public class Main extends javax.swing.JFrame {
 
     private void ListaMaestrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ListaMaestrosMouseClicked
         // TODO add your handling code here:
-        if (ListaCarreras.getSelectedIndex() >= 0) {
+        if (ListaMaestros.getSelectedIndex() >= 0) {
             if (evt.isMetaDown()) {
-                PopupMenu_Modificar.show(evt.getComponent(),
+                Maestro.show(evt.getComponent(),
                         evt.getX(), evt.getY());
-
             }
         }
     }//GEN-LAST:event_ListaMaestrosMouseClicked
+
+    private void jTree1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTree1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTree1MouseClicked
+
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        // TODO add your handling code here:
+           if (ListaMaestros.getSelectedIndex() >= 0) {
+            DefaultListModel modelo
+                    = (DefaultListModel) ListaMaestros.getModel();
+            modelo.remove(ListaMaestros.getSelectedIndex());
+            ListaMaestros.setModel(modelo);
+            JOptionPane.showMessageDialog(this,
+                    "Eliminado exitosamente");
+        }
+    }//GEN-LAST:event_EliminarActionPerformed
+
+    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaMaestros.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaMaestros.getModel();
+                ((Maestro) modeloLISTA.get(ListaMaestros.getSelectedIndex())) .setNombre(JOptionPane.showInputDialog("Nombre"));
+                ListaMaestros.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_NombreActionPerformed
+
+    private void ApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaMaestros.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaMaestros.getModel();
+                ((Maestro) modeloLISTA.get(ListaMaestros.getSelectedIndex())) .setApellido(JOptionPane.showInputDialog("Apellido"));
+                ListaMaestros.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_ApellidoActionPerformed
+
+    private void EdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdadActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaMaestros.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaMaestros.getModel();
+                ((Maestro) modeloLISTA.get(ListaMaestros.getSelectedIndex())) .setEdad(Integer.parseInt(JOptionPane.showInputDialog("Edad")));
+                ListaMaestros.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_EdadActionPerformed
+
+    private void SalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalarioActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaMaestros.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaMaestros.getModel();
+                ((Maestro) modeloLISTA.get(ListaMaestros.getSelectedIndex())) .setSalario(Integer.parseInt(JOptionPane.showInputDialog("Salario")));
+                ListaMaestros.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+        
+    }//GEN-LAST:event_SalarioActionPerformed
+
+    private void EliminarClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarClasesActionPerformed
+        // TODO add your handling code here:
+        try{
+           if (ListaClases.getSelectedIndex() >= 0) {
+            DefaultListModel modelo
+                    = (DefaultListModel) ListaClases.getModel();
+            modelo.remove(ListaClases.getSelectedIndex());
+            ListaClases.setModel(modelo);
+            JOptionPane.showMessageDialog(this,
+                    "Eliminado exitosamente");
+        }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_EliminarClasesActionPerformed
+
+    private void NombreClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreClasesActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaClases.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaClases.getModel();
+                ((Clases) modeloLISTA.get(ListaClases.getSelectedIndex())) .setNombre(JOptionPane.showInputDialog("Nombre"));
+                ListaClases.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_NombreClasesActionPerformed
+    
+    private void SeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeccionActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaClases.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaClases.getModel();
+                ((Clases) modeloLISTA.get(ListaClases.getSelectedIndex())) .setSeccion(JOptionPane.showInputDialog("Seccion"));
+                ListaClases.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_SeccionActionPerformed
+
+    private void EdificionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EdificionActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaClases.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaClases.getModel();
+                ((Clases) modeloLISTA.get(ListaClases.getSelectedIndex())) .setEdificio(Integer.parseInt(JOptionPane.showInputDialog("Edificio")));
+                ListaClases.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_EdificionActionPerformed
+
+    private void SalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalonActionPerformed
+        // TODO add your handling code here:
+        try{
+            if (ListaClases.getSelectedIndex()>=0) {
+                DefaultListModel modeloLISTA = (DefaultListModel) ListaClases.getModel();
+                ((Clases) modeloLISTA.get(ListaClases.getSelectedIndex())) .setSalon(Integer.parseInt(JOptionPane.showInputDialog("Salon")));
+                ListaClases.setModel(modeloLISTA);
+                JOptionPane.showMessageDialog(this, "Modificado exitosamente!");
+            }
+        }catch(Exception e){
+            
+        }
+    }//GEN-LAST:event_SalonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -741,14 +1008,20 @@ public class Main extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AireAcondicionadoClase;
+    private javax.swing.JMenuItem Apellido;
     private javax.swing.JTextField ApellidoAlumno;
     private javax.swing.JTextField ApellidoMaestro;
     private javax.swing.JComboBox<String> CarreraAlumno;
+    private javax.swing.JPopupMenu Clases;
     private javax.swing.JComboBox<String> ClasesMaestro;
     private javax.swing.JFormattedTextField CostoMensualCarrera;
+    private javax.swing.JMenuItem Edad;
     private javax.swing.JFormattedTextField EdadAlumno;
     private javax.swing.JFormattedTextField EdadMestro;
     private javax.swing.JFormattedTextField EdificioClase;
+    private javax.swing.JMenuItem Edificion;
+    private javax.swing.JMenuItem Eliminar;
+    private javax.swing.JMenuItem EliminarClases;
     private javax.swing.JComboBox<String> GeneroAlumno;
     private javax.swing.JComboBox<String> GeneroMaestro;
     private javax.swing.JButton GuardarAlumno;
@@ -756,16 +1029,24 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton GuardarClase;
     private javax.swing.JButton GuardarMaestro;
     private javax.swing.JTextField JefeCarrera;
+    private javax.swing.JList<String> ListaAlumnos;
     private javax.swing.JList<String> ListaCarreras;
+    private javax.swing.JList<String> ListaClases;
     private javax.swing.JList<String> ListaMaestros;
+    private javax.swing.JPopupMenu Maestro;
+    private javax.swing.JMenu Modificar;
+    private javax.swing.JMenu ModificarClases;
+    private javax.swing.JMenuItem Nombre;
     private javax.swing.JTextField NombreAlumno;
     private javax.swing.JTextField NombreClase;
+    private javax.swing.JMenuItem NombreClases;
     private javax.swing.JTextField NombreMaestro;
     private javax.swing.JComboBox<String> NombresCarreras;
-    private javax.swing.JPopupMenu PopupMenu_Eliminar;
-    private javax.swing.JPopupMenu PopupMenu_Modificar;
+    private javax.swing.JMenuItem Salario;
     private javax.swing.JFormattedTextField SalarioMaestro;
+    private javax.swing.JMenuItem Salon;
     private javax.swing.JFormattedTextField SalonClase;
+    private javax.swing.JMenuItem Seccion;
     private javax.swing.JTextField SeccionClase;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -791,9 +1072,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
